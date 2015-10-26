@@ -39,7 +39,7 @@
             <div class="col-xs-10">
               <button 
               class="btn btn-default pull-right"
-              v-on:click="addMessage">
+              v-on="click:addMessage">
               Contact Us
               </button>
             </div>
@@ -74,12 +74,6 @@ module.exports={
 			email:'myemail@gmail.com',
 			message:'Message'
 		}
-	},
-	methods:{		
-			addMessage:function(){
-				alert('Data accepted');		
-			}
-	}
-
+	}	
 }
 </script>
