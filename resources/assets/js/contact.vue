@@ -11,7 +11,7 @@
     <hr>
     
     <div class="col-sm-7"> 
-  <form method="POST" role="form" v-on="submit:addMessage">>    
+  <form method="POST" role="form" v-on="submit:addMessage">
         <div class="row form-group">
           <div class="col-xs-10">
           <label for="name">Name</label>

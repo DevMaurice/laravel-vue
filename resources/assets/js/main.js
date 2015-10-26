@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 //Set up router
 
-
+Vue.http.headers.common['X-CSRF-TOKEN']=document.querySelector('#token').getAttribute('value');
 
 var router=new VueRouter();
 

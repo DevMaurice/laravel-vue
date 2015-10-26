@@ -4,7 +4,7 @@
         <title>Laravel</title>    
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
-        <meta name=""> 
+        <meta id="token" name="token" value="{{ csrf_token() }}"> 
     </head>
     <style type="text/css">
     .container{
