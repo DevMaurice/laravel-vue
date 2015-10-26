@@ -16,37 +16,50 @@
     
     <hr>
     
-    <div class="col-sm-8">
-        
+    <div class="col-sm-7">        
         <div class="row form-group">
-          <div class="col-xs-3">
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="" v-model='firstname'>
+          <div class="col-xs-10">
+            <input 
+            type="text" 
+            class="form-control"  
+            v-model='info.firstName'>
           </div>
         </div>
         <div class="row form-group">
-            <div class="col-xs-5">
-            <input type="email" class="form-control" name="email" placeholder="Email" required=""
-            v-model='email'>
+            <div class="col-xs-10">
+            <input 
+            type="email" 
+            class="form-control" 
+            v-model='info.email'>
             </div>
            
         </div>
         <div class="row form-group">
             <div class="col-xs-10">
-            <textarea name="message" id="input" class="form-control" rows="10" required="required" placeholder="Message" v-model='message'></textarea>
+            <textarea name="message" id="input" class="form-control" rows="10" required="required" placeholder="Message" v-model='info.message'></textarea>
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-xs-10">
+            <div class="col-xs-3">
               <button 
               class="btn btn-default pull-right"
               v-on="click:addMessage">
               Contact Us
               </button>
             </div>
-        </div>
-      
+        </div>      
     </div>
-    <div class="col-sm-3 pull-right">
+    <div class="col-sm-3">
+      <div v-repeat="messages">
+        <article>
+          <h6 color:blue>{{ name }}</h6>    
+          <h6 color:blue>{{ email }}</h6>
+          <div class="body"> {{ message }}</div>
+        </article>  
+        <hr>
+      </div>  	
+    </div>
+    <div class="col-sm-2 pull-right">
   
         <address>
           <strong>Acme, LLC.</strong><br>
@@ -70,10 +83,32 @@
 module.exports={
 	data:function(){
 		return{
-			firstName:'Firstname',
-			email:'myemail@gmail.com',
-			message:'Message'
-		}
-	}	
+			info:{
+				firstName:'Firstname',
+				email:'myemail@gmail.com',
+				message:'Message'
+			},
+		};
+	},
+	methods:{		
+		addMessage:function(e){
+			e.preventDefault();
+			this.$http.post('/message',this.info)
+				.success(function(response){
+					alert('data inserted'+response);
+				});
+			},
+      getMessages:function(){
+        this.$http.get('/message',function(messages){
+          this.$set('messages',messages);
+        });
+
+      }
+	},
+  ready:function(){
+
+    this.getMessages();
+  }
+	
 }
 </script>

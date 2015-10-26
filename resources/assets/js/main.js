@@ -1,6 +1,8 @@
 var Vue=require('vue');
 var VueRouter=require('vue-router');
 
+Vue.use(require('vue-resource'));
+
 var About = require('./About.vue');
 var contact = require('./contact.vue');
 var home = require('./home.vue');
@@ -15,6 +17,9 @@ var router=new VueRouter();
 
 router.map({
 	'/home':{
+		component:home
+	},
+	'/':{
 		component:home
 	},
 
