@@ -1,11 +1,5 @@
 <style>
 	
-	.panel-body>textarea{
-		padding-top: 2em;
-	}
-	.panel-body>email{
-		padding-top: 2em;
-	}
 </style>
 
 <template>
@@ -16,18 +10,23 @@
     
     <hr>
     
-    <div class="col-sm-7">        
+    <div class="col-sm-7"> 
+  <form method="POST" role="form" v-on="submit:addMessage">>    
         <div class="row form-group">
           <div class="col-xs-10">
+          <label for="name">Name</label>
             <input 
             type="text" 
+            id="name"
             class="form-control"  
-            v-model='info.firstName'>
+            v-model='info.name'>
           </div>
         </div>
         <div class="row form-group">
             <div class="col-xs-10">
+            <label for="email">Email:</label>
             <input 
+            id="email"
             type="email" 
             class="form-control" 
             v-model='info.email'>
@@ -36,18 +35,24 @@
         </div>
         <div class="row form-group">
             <div class="col-xs-10">
-            <textarea name="message" id="input" class="form-control" rows="10" required="required" placeholder="Message" v-model='info.message'></textarea>
+            <label for="msg">Messsage: </label>
+            <textarea name="message" id="msg" class="form-control" rows="10" required="required" placeholder="Message" v-model='info.message'></textarea>
             </div>
         </div>
         <div class="row form-group">
             <div class="col-xs-3">
               <button 
               class="btn btn-default pull-right"
-              v-on="click:addMessage">
+              type="submit"
+              v-attr="disabled:false"
+              >                           
               Contact Us
               </button>
             </div>
-        </div>      
+        </div>  
+    </form> 
+
+
     </div>
     <div class="col-sm-3">
       <div v-repeat="messages">
@@ -84,9 +89,9 @@ module.exports={
 	data:function(){
 		return{
 			info:{
-				firstName:'Firstname',
+				name:'Your name ',
 				email:'myemail@gmail.com',
-				message:'Message'
+				message:'Your Message'
 			},
 		};
 	},

@@ -13959,16 +13959,16 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],110:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("\n\t\n\t.panel-body>textarea{\n\t\tpadding-top: 2em;\n\t}\n\t.panel-body>email{\n\t\tpadding-top: 2em;\n\t}\n")
+var __vueify_style__ = require("vueify-insert-css").insert("\n\t\n")
 'use strict';
 
 module.exports = {
 	data: function data() {
 		return {
 			info: {
-				firstName: 'Firstname',
+				name: 'Your name ',
 				email: 'myemail@gmail.com',
-				message: 'Message'
+				message: 'Your Message'
 			}
 		};
 	},
@@ -13991,14 +13991,14 @@ module.exports = {
 	}
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"container\">\n  <div class=\"row\">\n  \n    <h1>Contact Form</h1>\n    \n    <hr>\n    \n    <div class=\"col-sm-7\">        \n        <div class=\"row form-group\">\n          <div class=\"col-xs-10\">\n            <input type=\"text\" class=\"form-control\" v-model=\"info.firstName\">\n          </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <input type=\"email\" class=\"form-control\" v-model=\"info.email\">\n            </div>\n           \n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <textarea name=\"message\" id=\"input\" class=\"form-control\" rows=\"10\" required=\"required\" placeholder=\"Message\" v-model=\"info.message\"></textarea>\n            </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-3\">\n              <button class=\"btn btn-default pull-right\" v-on=\"click:addMessage\">\n              Contact Us\n              </button>\n            </div>\n        </div>      \n    </div>\n    <div class=\"col-sm-3\">\n      <div v-repeat=\"messages\">\n        <article>\n          <h6 color:blue=\"\">{{ name }}</h6>    \n          <h6 color:blue=\"\">{{ email }}</h6>\n          <div class=\"body\"> {{ message }}</div>\n        </article>  \n        <hr>\n      </div>  \t\n    </div>\n    <div class=\"col-sm-2 pull-right\">\n  \n        <address>\n          <strong>Acme, LLC.</strong><br>\n          700 Main St, Suite 600<br>\n          Springfield, MA 94107<br>\n          P: (123) 456-7890\n        </address>\n      \n        <address>\n          <strong>Email Us</strong><br>\n          <a href=\"mailto:#\">first.last@example.com</a>\n        </address>          \n    </div>\n    \n  </div><!--/row-->\n</div><!--/container-->\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"container\">\n  <div class=\"row\">\n  \n    <h1>Contact Form</h1>\n    \n    <hr>\n    \n    <div class=\"col-sm-7\"> \n  <form method=\"POST\" role=\"form\" v-on=\"submit:addMessage\">&gt;    \n        <div class=\"row form-group\">\n          <div class=\"col-xs-10\">\n          <label for=\"name\">Name</label>\n            <input type=\"text\" id=\"name\" class=\"form-control\" v-model=\"info.name\">\n          </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <label for=\"email\">Email:</label>\n            <input id=\"email\" type=\"email\" class=\"form-control\" v-model=\"info.email\">\n            </div>\n           \n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <label for=\"msg\">Messsage: </label>\n            <textarea name=\"message\" id=\"msg\" class=\"form-control\" rows=\"10\" required=\"required\" placeholder=\"Message\" v-model=\"info.message\"></textarea>\n            </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-3\">\n              <button class=\"btn btn-default pull-right\" type=\"submit\" v-attr=\"disabled:false\">                           \n              Contact Us\n              </button>\n            </div>\n        </div>  \n    </form> \n\n\n    </div>\n    <div class=\"col-sm-3\">\n      <div v-repeat=\"messages\">\n        <article>\n          <h6 color:blue=\"\">{{ name }}</h6>    \n          <h6 color:blue=\"\">{{ email }}</h6>\n          <div class=\"body\"> {{ message }}</div>\n        </article>  \n        <hr>\n      </div>  \t\n    </div>\n    <div class=\"col-sm-2 pull-right\">\n  \n        <address>\n          <strong>Acme, LLC.</strong><br>\n          700 Main St, Suite 600<br>\n          Springfield, MA 94107<br>\n          P: (123) 456-7890\n        </address>\n      \n        <address>\n          <strong>Email Us</strong><br>\n          <a href=\"mailto:#\">first.last@example.com</a>\n        </address>          \n    </div>\n    \n  </div><!--/row-->\n</div><!--/container-->\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "C:\\Users\\mkuria\\laravel\\laravel-vue\\resources\\assets\\js\\contact.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["\n\t\n\t.panel-body>textarea{\n\t\tpadding-top: 2em;\n\t}\n\t.panel-body>email{\n\t\tpadding-top: 2em;\n\t}\n"] = false
+    require("vueify-insert-css").cache["\n\t\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
