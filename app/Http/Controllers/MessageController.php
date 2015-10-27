@@ -49,7 +49,7 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        return Message::findOrFail($id);
     }
 
     /**
@@ -72,7 +72,9 @@ class MessageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $msg = Message::findOrFail($id);
+        $msg->update($request->all());
+        return Message::all();
     }
 
     /**
@@ -83,6 +85,7 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+            Message::destroy($id);
+            return Message::all();
     }
 }

@@ -13,7 +13,7 @@
     <div class="col-sm-7"> 
   <form method="POST" role="form" v-on="submit:addMessage">
         <div class="row form-group">
-          <div class="col-xs-10">
+          <div class="col-lg-10">
           <label for="name">Name</label>
             <input 
             type="text" 
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="row form-group">
-            <div class="col-xs-10">
+            <div class="col-lg-10">
             <label for="email">Email:</label>
             <input 
             id="email"
@@ -34,19 +34,28 @@
            
         </div>
         <div class="row form-group">
-            <div class="col-xs-10">
+            <div class="col-lg-10">
             <label for="msg">Messsage: </label>
             <textarea name="message" id="msg" class="form-control" rows="10" required="required" placeholder="Message" v-model='info.message'></textarea>
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-xs-3">
-              <button 
+            <div class="col-lg-3" v-show="showbtn">
+              <button               
               class="btn btn-default pull-right"
               type="submit"
               v-attr="disabled:false"
               >                           
               Contact Us
+              </button>              
+            </div>
+            <div class="col-lg-3" v-show="!showbtn">
+              <button               
+              class="btn btn-info pull-right"
+              type="button"
+              v-on="click:saveMessage(info)"
+              >                           
+              Save
               </button>
             </div>
         </div>  
@@ -55,12 +64,20 @@
 
     </div>
     <div class="col-sm-3">
-      <div v-repeat="messages">
+      <div v-repeat="msg in messages">
         <article>
-          <h6 color:blue>{{ name }}</h6>    
-          <h6 color:blue>{{ email }}</h6>
-          <div class="body"> {{ message }}</div>
+          <h6 color:blue>{{ msg.id }}</h6>
+          <h6 color:blue>{{ msg.name }}</h6>    
+          <h6 color:blue>{{ msg.email }}</h6>
+          <div class="body"> {{ msg.message }}</div>
         </article>  
+        <div class="btn-group" role="group" aria-label="Buttonsss">
+            <button type="button" class="btn btn-success" v-on="click:editMessage(msg)">Edit</button>
+            <button type="button" class="btn btn-danger" v-on="click:deleteMessage(msg)">Delete</button>
+            <button type="button" class="btn btn-info">
+               Votes <span class="badge">4</span>
+            </button>
+        </div>
         <hr>
       </div>  	
     </div>
@@ -88,6 +105,8 @@
 module.exports={
 	data:function(){
 		return{
+      showbtn:true,
+      messages:[],
 			info:{
 				name:'Your name ',
 				email:'myemail@gmail.com',
@@ -100,7 +119,8 @@ module.exports={
 			e.preventDefault();
 			this.$http.post('/message',this.info)
 				.success(function(response){
-					alert('data inserted'+response);
+					alert('data inserted');
+          info:{name='',email='', message=''}
 				});
 			},
       getMessages:function(){
@@ -108,12 +128,36 @@ module.exports={
           this.$set('messages',messages);
         });
 
-      }
+      },
+      editMessage:function(msg){          
+          this.$http.get('/message/'+msg.id,function(result){
+            this.info=result;  
+            this.showbtn=false;     
+          });
+
+      },
+      saveMessage:function(msg){
+           this.$http.put('/message/'+msg.id,this.info)
+           .success(function(response){
+            console.log(response);
+            this.messages=response;
+            this.info={name:'',email:'', message:''}; 
+            this.showbtn=true;        
+           });
+      },
+      deleteMessage:function(msg){
+        this.$http.delete('/message/'+msg.id,this.info)
+           .success(function(response){
+             this.messages=response;
+              console.log('done deleting');
+           });
+      },      
 	},
   ready:function(){
 
     this.getMessages();
-  }
-	
+  },
+
+ 
 }
 </script>

@@ -13963,35 +13963,60 @@ var __vueify_style__ = require("vueify-insert-css").insert("\n\t\n")
 'use strict';
 
 module.exports = {
-	data: function data() {
-		return {
-			info: {
-				name: 'Your name ',
-				email: 'myemail@gmail.com',
-				message: 'Your Message'
-			}
-		};
-	},
-	methods: {
-		addMessage: function addMessage(e) {
-			e.preventDefault();
-			this.$http.post('/message', this.info).success(function (response) {
-				alert('data inserted' + response);
-			});
-		},
-		getMessages: function getMessages() {
-			this.$http.get('/message', function (messages) {
-				this.$set('messages', messages);
-			});
-		}
-	},
-	ready: function ready() {
+  data: function data() {
+    return {
+      showbtn: true,
+      messages: [],
+      info: {
+        name: 'Your name ',
+        email: 'myemail@gmail.com',
+        message: 'Your Message'
+      }
+    };
+  },
+  methods: {
+    addMessage: function addMessage(e) {
+      e.preventDefault();
+      this.$http.post('/message', this.info).success(function (response) {
+        alert('data inserted');
+        info: {
+          name = '', email = '', message = '';
+        }
+      });
+    },
+    getMessages: function getMessages() {
+      this.$http.get('/message', function (messages) {
+        this.$set('messages', messages);
+      });
+    },
+    editMessage: function editMessage(msg) {
+      this.$http.get('/message/' + msg.id, function (result) {
+        this.info = result;
+        this.showbtn = false;
+      });
+    },
+    saveMessage: function saveMessage(msg) {
+      this.$http.put('/message/' + msg.id, this.info).success(function (response) {
+        console.log(response);
+        this.messages = response;
+        this.info = { name: '', email: '', message: '' };
+        this.showbtn = true;
+      });
+    },
+    deleteMessage: function deleteMessage(msg) {
+      this.$http['delete']('/message/' + msg.id, this.info).success(function (response) {
+        this.messages = response;
+        console.log('done deleting');
+      });
+    }
+  },
+  ready: function ready() {
 
-		this.getMessages();
-	}
+    this.getMessages();
+  }
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"container\">\n  <div class=\"row\">\n  \n    <h1>Contact Form</h1>\n    \n    <hr>\n    \n    <div class=\"col-sm-7\"> \n  <form method=\"POST\" role=\"form\" v-on=\"submit:addMessage\">&gt;    \n        <div class=\"row form-group\">\n          <div class=\"col-xs-10\">\n          <label for=\"name\">Name</label>\n            <input type=\"text\" id=\"name\" class=\"form-control\" v-model=\"info.name\">\n          </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <label for=\"email\">Email:</label>\n            <input id=\"email\" type=\"email\" class=\"form-control\" v-model=\"info.email\">\n            </div>\n           \n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-10\">\n            <label for=\"msg\">Messsage: </label>\n            <textarea name=\"message\" id=\"msg\" class=\"form-control\" rows=\"10\" required=\"required\" placeholder=\"Message\" v-model=\"info.message\"></textarea>\n            </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-xs-3\">\n              <button class=\"btn btn-default pull-right\" type=\"submit\" v-attr=\"disabled:false\">                           \n              Contact Us\n              </button>\n            </div>\n        </div>  \n    </form> \n\n\n    </div>\n    <div class=\"col-sm-3\">\n      <div v-repeat=\"messages\">\n        <article>\n          <h6 color:blue=\"\">{{ name }}</h6>    \n          <h6 color:blue=\"\">{{ email }}</h6>\n          <div class=\"body\"> {{ message }}</div>\n        </article>  \n        <hr>\n      </div>  \t\n    </div>\n    <div class=\"col-sm-2 pull-right\">\n  \n        <address>\n          <strong>Acme, LLC.</strong><br>\n          700 Main St, Suite 600<br>\n          Springfield, MA 94107<br>\n          P: (123) 456-7890\n        </address>\n      \n        <address>\n          <strong>Email Us</strong><br>\n          <a href=\"mailto:#\">first.last@example.com</a>\n        </address>          \n    </div>\n    \n  </div><!--/row-->\n</div><!--/container-->\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"container\">\n  <div class=\"row\">\n  \n    <h1>Contact Form</h1>\n    \n    <hr>\n    \n    <div class=\"col-sm-7\"> \n  <form method=\"POST\" role=\"form\" v-on=\"submit:addMessage\">\n        <div class=\"row form-group\">\n          <div class=\"col-lg-10\">\n          <label for=\"name\">Name</label>\n            <input type=\"text\" id=\"name\" class=\"form-control\" v-model=\"info.name\">\n          </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-lg-10\">\n            <label for=\"email\">Email:</label>\n            <input id=\"email\" type=\"email\" class=\"form-control\" v-model=\"info.email\">\n            </div>\n           \n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-lg-10\">\n            <label for=\"msg\">Messsage: </label>\n            <textarea name=\"message\" id=\"msg\" class=\"form-control\" rows=\"10\" required=\"required\" placeholder=\"Message\" v-model=\"info.message\"></textarea>\n            </div>\n        </div>\n        <div class=\"row form-group\">\n            <div class=\"col-lg-3\" v-show=\"showbtn\">\n              <button class=\"btn btn-default pull-right\" type=\"submit\" v-attr=\"disabled:false\">                           \n              Contact Us\n              </button>              \n            </div>\n            <div class=\"col-lg-3\" v-show=\"!showbtn\">\n              <button class=\"btn btn-info pull-right\" type=\"button\" v-on=\"click:saveMessage(info)\">                           \n              Save\n              </button>\n            </div>\n        </div>  \n    </form> \n\n\n    </div>\n    <div class=\"col-sm-3\">\n      <div v-repeat=\"msg in messages\">\n        <article>\n          <h6 color:blue=\"\">{{ msg.id }}</h6>\n          <h6 color:blue=\"\">{{ msg.name }}</h6>    \n          <h6 color:blue=\"\">{{ msg.email }}</h6>\n          <div class=\"body\"> {{ msg.message }}</div>\n        </article>  \n        <div class=\"btn-group\" role=\"group\" aria-label=\"Buttonsss\">\n            <button type=\"button\" class=\"btn btn-success\" v-on=\"click:editMessage(msg)\">Edit</button>\n            <button type=\"button\" class=\"btn btn-danger\" v-on=\"click:deleteMessage(msg)\">Delete</button>\n            <button type=\"button\" class=\"btn btn-info\">\n               Votes <span class=\"badge\">4</span>\n            </button>\n        </div>\n        <hr>\n      </div>  \t\n    </div>\n    <div class=\"col-sm-2 pull-right\">\n  \n        <address>\n          <strong>Acme, LLC.</strong><br>\n          700 Main St, Suite 600<br>\n          Springfield, MA 94107<br>\n          P: (123) 456-7890\n        </address>\n      \n        <address>\n          <strong>Email Us</strong><br>\n          <a href=\"mailto:#\">first.last@example.com</a>\n        </address>          \n    </div>\n    \n  </div><!--/row-->\n</div><!--/container-->\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
