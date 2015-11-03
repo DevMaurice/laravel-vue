@@ -8,7 +8,15 @@ var contact = require('./contact.vue');
 var home = require('./home.vue');
 var User = require('./Users.vue');
 var Position = require('./Position.vue');
+
+//County components
 var County = require('./County.vue');
+var addCounty = require('./county/add.vue');
+var editCounty = require('./county/edit.vue');
+var viewCounty = require('./county/view.vue');
+var deleteCounty = require('./county/delete.vue');
+
+
 var E404 =require('./errors/404.vue');
 
 Vue.use(VueRouter);
@@ -37,11 +45,33 @@ router.map({
 	'/user':{
 		component:User
 	},
+
 	'/position':{
 		component:Position
 	},
+
 	'/county':{
-		component:County
+		component:County,
+		subRoutes:{
+
+			'/add': {
+					name:'addcounty',
+				    component: addCounty
+				  },
+
+			':id/view': {
+					name:'viewcounty',
+				    component: viewCounty
+				  },
+			':id/edit': {
+					name:'editcounty',
+				    component: editCounty
+				  },
+			':id/delete': {
+					name:'deletecounty',
+				    component: deleteCounty
+				  }
+			}
 	}	
 
 });

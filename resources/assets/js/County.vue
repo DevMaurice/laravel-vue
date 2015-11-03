@@ -9,7 +9,7 @@
 			    	</a>
 			    </h4>
 			    <div class="btn-group pull-right">
-			    	<a v-link="{path: 'county/add'}" class="btn btn-success btn-lg">
+			    	<a v-link="{name: 'addcounty'}" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalNorm">
 			    	<i class="fa fa-plus-circle fa-lg"></i> New
 			    	</a>			      
 			    </div>
@@ -21,16 +21,16 @@
 								<th class="text-center">ID</th>
 								<th class="text-center">Name</th>
 								<th class="text-center">Users</th>
-								<th class="text-center">Position</th>
+								<th class="text-center">Positions</th>
 								<th class="pull-right">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="county in countys">
-								<td>{{ county.id }}</td>
-								<td>{{ county.name }}</td>
-								<td>{{ county.users }}</td>
-								<td>{{ county.positions}}</td>
+								<td class="text-center">{{ county.id }}</td>
+								<td class="text-center">{{ county.name }}</td>
+								<td class="text-center">{{ county.users }}</td>
+								<td class="text-center">{{ county.positions}}</td>
 								
 								<td> 
 									<div class="pull-right">
@@ -49,6 +49,7 @@
 							</tr>
 						</tbody>
 					</table>
+					<router-view></router-view>
 			</div>
 			<div class="panel-footer">
 			<ul class = "pagination">
@@ -84,7 +85,8 @@ module.exports = {
 				name:'Kiambu',
 				users : 20,
 				positions:5
-			}
+			},
+			countys:[]
 
 		}
 	}
