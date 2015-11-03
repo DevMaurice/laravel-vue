@@ -108,9 +108,9 @@ module.exports={
       showbtn:true,
       messages:[],
 			info:{
-				name:'Your name ',
-				email:'myemail@gmail.com',
-				message:'Your Message'
+				name:'',
+				email:'',
+				message:''
 			},
 		};
 	},
@@ -119,8 +119,9 @@ module.exports={
 			e.preventDefault();
 			this.$http.post('/message',this.info)
 				.success(function(response){
-					alert('data inserted');
-          info:{name='',email='', message=''}
+					console.log('data inserted');
+           this.info={name:'',email:'', message:''}; 
+           this.getMessages();
 				});
 			},
       getMessages:function(){
@@ -157,7 +158,6 @@ module.exports={
 
     this.getMessages();
   },
-
  
 }
 </script>

@@ -13959,6 +13959,95 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],110:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("\n.container{\n\tpadding-top:20px;\n}\n\n")
+'use strict';
+
+module.exports = {
+	data: function data() {
+
+		return {
+			county: {
+				id: 1,
+				name: 'Kiambu',
+				users: 20,
+				positions: 5
+			}
+
+		};
+	}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n\t<div class=\"container\">\n\t\t<div class=\"panel panel-success\">\n\t\t    <div class=\"panel-heading clearfix\">\n\t\t\t    <h4 class=\"panel-title pull-left\" style=\"padding-top: 7.5px;\">\n\t\t\t    \t<a v-link=\"{path: '/county'}\" <i=\"\" class=\"fa fa-list fa-lg\">  Counties\n\t\t\t    \t</a>\n\t\t\t    </h4>\n\t\t\t    <div class=\"btn-group pull-right\">\n\t\t\t    \t<a v-link=\"{path: 'county/add'}\" class=\"btn btn-success btn-lg\">\n\t\t\t    \t<i class=\"fa fa-plus-circle fa-lg\"></i> New\n\t\t\t    \t</a>\t\t\t      \n\t\t\t    </div>\n\t\t\t</div>\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t<table class=\"table table-hover\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">ID</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Name</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Users</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Position</th>\n\t\t\t\t\t\t\t\t<th class=\"pull-right\">Action</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr v-for=\"county in countys\">\n\t\t\t\t\t\t\t\t<td>{{ county.id }}</td>\n\t\t\t\t\t\t\t\t<td>{{ county.name }}</td>\n\t\t\t\t\t\t\t\t<td>{{ county.users }}</td>\n\t\t\t\t\t\t\t\t<td>{{ county.positions}}</td>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<td> \n\t\t\t\t\t\t\t\t\t<div class=\"pull-right\">\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'county/edit'}\" class=\"btn btn-primary btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-plus-square-o\"></i>  View\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'county/delete'}\" class=\"btn btn-success btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o\"></i>  Edit\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'county/delete'}\" class=\"btn btn-danger btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash-o\"></i>  Delete\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div class=\"panel-footer\">\n\t\t\t<ul class=\"pagination\">\n\t\t\t   <li><a href=\"#\">«</a></li>\n\t\t\t   <li><a href=\"#\">1</a></li>\n\t\t\t   <li><a href=\"#\">2</a></li>\n\t\t\t   <li><a href=\"#\">3</a></li>\n\t\t\t   <li><a href=\"#\">4</a></li>\n\t\t\t   <li><a href=\"#\">5</a></li>\n\t\t\t   <li><a href=\"#\">»</a></li>\n\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "C:\\Users\\mkuria\\laravel\\laravel-vue\\resources\\assets\\js\\County.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["\n.container{\n\tpadding-top:20px;\n}\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],111:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("\n.container{\n\tpadding-top:20px;\n}\n\n")
+"use strict";
+
+module.exports = {
+	data: function data() {
+
+		return {};
+	}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n\t<div class=\"container\">\n\t\t<div class=\"panel panel-success\">\n\t\t    <div class=\"panel-heading clearfix\">\n\t\t\t    <h4 class=\"panel-title pull-left\" style=\"padding-top: 7.5px;\">\n\t\t\t    \t<a v-link=\"{path: '/user'}\" <i=\"\" class=\"fa fa-list fa-lg\">  Users\n\t\t\t    \t</a>\n\t\t\t    </h4>\n\t\t\t    <div class=\"btn-group pull-right\">\n\t\t\t    \t<a v-link=\"{path: 'user/add'}\" class=\"btn btn-success btn-lg\">\n\t\t\t    \t<i class=\"fa fa-plus-circle fa-lg\"></i> New\n\t\t\t    \t</a>\t\t\t      \n\t\t\t    </div>\n\t\t\t</div>\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t<table class=\"table table-hover\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Name</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Email</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">County</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Position</th>\n\t\t\t\t\t\t\t\t<th class=\"pull-right\">Action</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr v-for=\"user in users\">\n\t\t\t\t\t\t\t\t<td>{{ user.name }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.email }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.position }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.county }}</td>\n\t\t\t\t\t\t\t\t<td> \n\t\t\t\t\t\t\t\t\t<div class=\"pull-right\">\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/edit'}\" class=\"btn btn-primary btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-plus-square-o\"></i>  View\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/delete'}\" class=\"btn btn-success btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o\"></i>  Edit\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/delete'}\" class=\"btn btn-danger btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash-o\"></i>  Delete\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div class=\"panel-footer\">\n\t\t\t<ul class=\"pagination\">\n\t\t\t   <li><a href=\"#\">«</a></li>\n\t\t\t   <li><a href=\"#\">1</a></li>\n\t\t\t   <li><a href=\"#\">2</a></li>\n\t\t\t   <li><a href=\"#\">3</a></li>\n\t\t\t   <li><a href=\"#\">4</a></li>\n\t\t\t   <li><a href=\"#\">5</a></li>\n\t\t\t   <li><a href=\"#\">»</a></li>\n\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "C:\\Users\\mkuria\\laravel\\laravel-vue\\resources\\assets\\js\\Position.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["\n.container{\n\tpadding-top:20px;\n}\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],112:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("\n.container{\n\tpadding-top:20px;\n}\n\n")
+"use strict";
+
+module.exports = {
+	data: function data() {
+
+		return {};
+	}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n\t<div class=\"container\">\n\t\t<div class=\"panel panel-success\">\n\t\t    <div class=\"panel-heading clearfix\">\n\t\t\t    <h4 class=\"panel-title pull-left\" style=\"padding-top: 7.5px;\">\n\t\t\t    \t<a v-link=\"{path: '/user'}\" <i=\"\" class=\"fa fa-list fa-lg\">  Users\n\t\t\t    \t</a>\n\t\t\t    </h4>\n\t\t\t    <div class=\"btn-group pull-right\">\n\t\t\t    \t<a v-link=\"{path: 'user/add'}\" class=\"btn btn-success btn-lg\">\n\t\t\t    \t<i class=\"fa fa-plus-circle fa-lg\"></i> New\n\t\t\t    \t</a>\t\t\t      \n\t\t\t    </div>\n\t\t\t</div>\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t<table class=\"table table-hover\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Name</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Email</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">County</th>\n\t\t\t\t\t\t\t\t<th class=\"text-center\">Position</th>\n\t\t\t\t\t\t\t\t<th class=\"pull-right\">Action</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr v-for=\"user in users\">\n\t\t\t\t\t\t\t\t<td>{{ user.name }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.email }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.position }}</td>\n\t\t\t\t\t\t\t\t<td>{{ user.county }}</td>\n\t\t\t\t\t\t\t\t<td> \n\t\t\t\t\t\t\t\t\t<div class=\"pull-right\">\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/edit'}\" class=\"btn btn-primary btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-plus-square-o\"></i>  View\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/delete'}\" class=\"btn btn-success btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-pencil-square-o\"></i>  Edit\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t<a v-link=\"{path: 'user/delete'}\" class=\"btn btn-danger btn-sm\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trash-o\"></i>  Delete\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div class=\"panel-footer\">\n\t\t\t<ul class=\"pagination\">\n\t\t\t   <li><a href=\"#\">«</a></li>\n\t\t\t   <li><a href=\"#\">1</a></li>\n\t\t\t   <li><a href=\"#\">2</a></li>\n\t\t\t   <li><a href=\"#\">3</a></li>\n\t\t\t   <li><a href=\"#\">4</a></li>\n\t\t\t   <li><a href=\"#\">5</a></li>\n\t\t\t   <li><a href=\"#\">»</a></li>\n\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "C:\\Users\\mkuria\\laravel\\laravel-vue\\resources\\assets\\js\\Users.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["\n.container{\n\tpadding-top:20px;\n}\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],113:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("\n\t\n")
 'use strict';
 
@@ -13968,9 +14057,9 @@ module.exports = {
       showbtn: true,
       messages: [],
       info: {
-        name: 'Your name ',
-        email: 'myemail@gmail.com',
-        message: 'Your Message'
+        name: '',
+        email: '',
+        message: ''
       }
     };
   },
@@ -13978,10 +14067,9 @@ module.exports = {
     addMessage: function addMessage(e) {
       e.preventDefault();
       this.$http.post('/message', this.info).success(function (response) {
-        alert('data inserted');
-        info: {
-          name = '', email = '', message = '';
-        }
+        console.log('data inserted');
+        this.info = { name: '', email: '', message: '' };
+        this.getMessages();
       });
     },
     getMessages: function getMessages() {
@@ -14032,7 +14120,26 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],111:[function(require,module,exports){
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],114:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("\n\t\n\n")
+"use strict";
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\n<div class=\"container\">\n\t<div class=\"panel panel-warning\">\n\t\t  <div class=\"panel-heading\">\n\t\t\t\t<h3 class=\"panel-title\">Not Found</h3>\n\t\t  </div>\n\t\t  <div class=\"panel-body\">\n\t\t\t\tPage requested not found:\n\t\t\t\t<a v-link=\"{path: '/home'}\">Home</a>\n\n\t\t  </div>\n\t</div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "C:\\Users\\mkuria\\laravel\\laravel-vue\\resources\\assets\\js\\errors\\404.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["\n\t\n\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],115:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("\n    .blue{\n    background-color:#007fba;\n     color:#fff;\n }\n.white{\n    color:#007fba;\n}\n.row {\n    padding:20px 0px;\n}\nimg{\n    width:480px; border-radius:10px;\n}\n.col-sm-6{\n    margin-left:50px\n}\n\n")
 "use strict";
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div class=\"row white\">\n        <div class=\"container\">\n            <div class=\"col-sm-7\">\n                <p class=\"\">Particular unaffected projection sentiments no my. Music marry as at cause\n                    party worth weeks. Saw how marianne graceful dissuade new outlived prospect\n                    followed. Uneasy no settle whence nature narrow in afraid. At could merit\n                    by keeps child. While dried maids on he of linen in.</p>\n            </div>\n            <div class=\"col-sm-5\">\n                <img src=\"https://www.wowrox.com/wp-content/uploads/2015/09/business-struggle-1.jpg\" class=\"\" style=\"width: 450px; height:400px\">\n            </div>\n        </div>\n    </div>\n    <div class=\"row blue\">\n        <div class=\"container\">\n            <div class=\"col-sm-5\"></div>\n            <div class=\"col-sm-6\">\n                 <h1 class=\"\">This is first text</h1>\n\n                 <h2 class=\"\">This is second text</h2>\n\n                <p class=\"\">Particular unaffected projection sentiments no my. Music marry as at cause\n                    party worth weeks. Saw how marianne graceful dissuade new outlived prospect\n                    followed. Uneasy no settle whence nature narrow in afraid. At could merit\n                    by keeps child. While dried maids on he of linen in.</p>\n            </div>\n            <img src=\"https://www.wowrox.com/wp-content/uploads/2015/09/bs.png\" class=\"\" contenteditable=\"false\">\n        </div>\n    </div>\n    <div class=\"row white\">\n        <div class=\"container\">\n            <div class=\"col-sm-7\">\n                 <h1 class=\"\">This is first text</h1>\n\n                 <h2 class=\"\">This is second text</h2>\n\n                <p class=\"\">Particular unaffected projection sentiments no my. Music marry as at cause\n                    party worth weeks. Saw how marianne graceful dissuade new outlived prospect\n                    followed. Uneasy no settle whence nature narrow in afraid. At could merit\n                    by keeps child. While dried maids on he of linen in.</p>\n            </div>\n            <div class=\"col-sm-5\">\n                <img src=\"https://www.wowrox.com/wp-content/uploads/2015/09/Leader-small-1024x727.jpg\" class=\"\">\n            </div>\n        </div>\n    </div>\n    <div class=\"row blue\">\n        <div class=\"container\">\n            <div class=\"col-sm-5\">\n                <img src=\"https://www.wowrox.com/wp-content/uploads/2015/09/615x330_hero-main1.jpg\" class=\"\">\n            </div>\n            <div class=\"col-sm-6\">\n                 <h1 class=\"\">This is first text</h1>\n\n                 <h2 class=\"\">This is second text</h2>\n\n                <p class=\"\">Particular unaffected projection sentiments no my. Music marry as at cause\n                    party worth weeks. Saw how marianne graceful dissuade new outlived prospect\n                    followed. Uneasy no settle whence nature narrow in afraid. At could merit\n                    by keeps child. While dried maids on he of linen in.</p>\n            </div>\n        </div>\n    </div>\n"
@@ -14051,7 +14158,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],112:[function(require,module,exports){
+},{"vue":106,"vue-hot-reload-api":2,"vueify-insert-css":108}],116:[function(require,module,exports){
 'use strict';
 
 var Vue = require('vue');
@@ -14062,6 +14169,10 @@ Vue.use(require('vue-resource'));
 var About = require('./About.vue');
 var contact = require('./contact.vue');
 var home = require('./home.vue');
+var User = require('./Users.vue');
+var Position = require('./Position.vue');
+var County = require('./County.vue');
+var E404 = require('./errors/404.vue');
 
 Vue.use(VueRouter);
 
@@ -14075,8 +14186,8 @@ router.map({
 	'/home': {
 		component: home
 	},
-	'/': {
-		component: home
+	'*': {
+		component: E404
 	},
 
 	'/about': {
@@ -14085,6 +14196,15 @@ router.map({
 
 	'/contact': {
 		component: contact
+	},
+	'/user': {
+		component: User
+	},
+	'/position': {
+		component: Position
+	},
+	'/county': {
+		component: County
 	}
 
 });
@@ -14093,4 +14213,4 @@ var App = Vue.extend({});
 
 router.start(App, '#app');
 
-},{"./About.vue":109,"./contact.vue":110,"./home.vue":111,"vue":106,"vue-resource":4,"vue-router":16}]},{},[112]);
+},{"./About.vue":109,"./County.vue":110,"./Position.vue":111,"./Users.vue":112,"./contact.vue":113,"./errors/404.vue":114,"./home.vue":115,"vue":106,"vue-resource":4,"vue-router":16}]},{},[116]);

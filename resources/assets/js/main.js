@@ -6,6 +6,10 @@ Vue.use(require('vue-resource'));
 var About = require('./About.vue');
 var contact = require('./contact.vue');
 var home = require('./home.vue');
+var User = require('./Users.vue');
+var Position = require('./Position.vue');
+var County = require('./County.vue');
+var E404 =require('./errors/404.vue');
 
 Vue.use(VueRouter);
 
@@ -19,8 +23,8 @@ router.map({
 	'/home':{
 		component:home
 	},
-	'/':{
-		component:home
+	'*':{
+		component:E404
 	},
 
 	'/about':{
@@ -29,8 +33,16 @@ router.map({
 
 	'/contact':{
 		component:contact
-	}
-	
+	},
+	'/user':{
+		component:User
+	},
+	'/position':{
+		component:Position
+	},
+	'/county':{
+		component:County
+	}	
 
 });
 
