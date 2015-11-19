@@ -31,7 +31,7 @@ router.map({
 	'/home':{
 		component:home
 	},
-	'*':{
+	'/':{
 		component:E404
 	},
 
@@ -51,6 +51,7 @@ router.map({
 	},
 
 	'/county':{
+		
 		component:County,
 		subRoutes:{
 
